@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: symfony-apptest1
+  namespace: test
+  labels:
+    app: symfony-apptest1
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: symfony-apptest1
+  template:
+    metadata:
+      labels:
+        app: symfony-apptest1
+    spec:
+      containers:
+        - name: symfony-apptest1
+          image: medlouay/symfony-apptest1
+          ports:
+            - containerPort: 80
